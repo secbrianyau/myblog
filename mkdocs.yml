@@ -1,0 +1,66 @@
+site_name: Brain You the Blog
+site_url: https://secbrianyau.github.io/myblog
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Blogs:
+    - 2023
+      - '2023-06: USB Malware': 'blogs/202306-USBMalware.md'
+  - Links: links.md
+# plugins:
+#   - search: {}
+#   - encryptcontent:
+#       global_password: mkdoc_pass_pla ceholder
+
+plugins:
+  - search
+  - table-reader
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: pink
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.annotate
+
+markdown_extensions:
+  - footnotes
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details 
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - stylesheets/extra.css
