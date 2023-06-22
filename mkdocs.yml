@@ -5,8 +5,7 @@ nav:
   - Home: index.md
   - About: about.md
   - Blogs:
-    - '2023'
-      - '2023-06: USB Malware': 'blogs/202306-USBMalware.md'
+    - '2023-06: USB Malware': 'blogs/202306-USBMalware.md'
   - Links: links.md
 # plugins:
 #   - search: {}
