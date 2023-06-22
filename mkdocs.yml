@@ -14,7 +14,6 @@ nav:
 
 plugins:
   - search
-  - table-reader
 
 theme:
   name: material
