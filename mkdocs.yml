@@ -5,7 +5,7 @@ nav:
   - Home: index.md
   - About: about.md
   - Blogs:
-    - '2023-06: USB Malware': 'blogs/202306-USBMalware.md'
+    - '202306 - AutoIt3 based USB Malware: The 0LIONW0 Worm (aka AutoIt.OTORUN.AC)': 'blogs/202306-USBMalware.md'
   - Links: links.md
 # plugins:
 #   - search: {}
@@ -14,6 +14,7 @@ nav:
 
 plugins:
   - search
+  - tags
 
 theme:
   name: material
