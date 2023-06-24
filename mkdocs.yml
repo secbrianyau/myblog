@@ -15,7 +15,8 @@ nav:
 
 plugins:
   - search
-  - tags
+  - tags:
+      tags_file: tags.md
 
 theme:
   name: material
