@@ -18,8 +18,7 @@ plugins:
   - tags:
       tags_file: tags.md
   - blog:
-      blog_dir: blogs
-      blog_toc: true
+      folder: blogs
 
 theme:
   name: material
