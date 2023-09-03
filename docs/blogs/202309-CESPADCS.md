@@ -33,17 +33,17 @@ Like in the previous courses, you are given the VPN access and Web access to the
 
 The course uses a step-by-step approach to walk through concepts such as red teaming basics (e.g., AV Bypass, PowerShell Logging bypass, etc.), the workings of AD CS, different attack paths in AD CS environments, and tools for AD CS attacks, etc. You may refer to the [Altered Security ADCS Course Page](https://www.alteredsecurity.com/adcs) to learn more about the course itself.
 
-As a student who does not have much experience in configuring, defending and attacking ADCS, this course provides much knowledge on top of the basic AD attack surfaces learnt in the previous CRTP, CRTE and CRTM course. For someone who has 0 experience or knowledge in AD attacks, definitely check out the [CRTP course](https://www.alteredsecurity.com/adlab) to learn the fundamentals first.
+As a student who does not have much experience in configuring, defending and attacking ADCS, this course provides much knowledge, in additional to the basic AD attack surfaces learnt in the previous CRTP, CRTE and CRTM courses. For someone who has no experience and knowledge in AD attacks, definitely check out the [CRTP course](https://www.alteredsecurity.com/adlab) to learn the fundamentals first.
 
-When studying the course, I simply read the course slides and make notes using Markdown so I could keep referencing during my work or building labs. Unless I am very unsure about the knowledge, I skip the course videos since the content is very similar to the course slides. 
+My approach to studying the course involves thorough review of the course slides, accompanied by note-taking in Markdown format for easy reference during practical work and lab building. Unless faced with substantial knowledge gaps, I tend to skip the course videos due to their similarity to the course slides.
 
-I find it is much valuable to encounter difficulties while doing the labs - I especially love that the lab manual provides the steps to work from both Windows and Linux environment, which provides great flexiblility and experience for your real life engagements.
+I highly value encountering challenges while working on the labs. The lab manual, which offers step-by-step instructions for both Windows and Linux environments, enhances flexibility and provides valuable real-life experience for engagements in the field.
 
-For each labs, there are flags that you have to submit on their learning portal to make sure that you've followed the materials well.
+Each lab requires submission of flags on the learning portal to ensure comprehensive understanding and adherence to the course materials.
 
-For myself, I subscribed lab for 30 days and it is much more than enough to finish the materials.
+Personally, I have subscribed to the lab for a 30-day duration, which has proven more than sufficient to complete the materials at hand.
 
-I believe most of the materials are based on and can be found in the [SpecterOps's Certified Pre-Owned Whitepaper](https://specterops.io/wp-content/uploads/sites/3/2022/06/Certified_Pre-Owned.pdf) - and so if you would like to learn the content, you may refer to this whitepaper.
+I believe most of the materials are closely relevant to the [SpecterOps's Certified Pre-Owned Whitepaper](https://specterops.io/wp-content/uploads/sites/3/2022/06/Certified_Pre-Owned.pdf). To gain a comprehensive understanding of the content, I highly recommend referring to this whitepaper as a valuable resource.
 
 <br/>
 
@@ -51,9 +51,9 @@ I believe most of the materials are based on and can be found in the [SpecterOps
 
 ## Examination
 
-Regarding the exam, you have 24 hours to work in the exam lab environment, and an additional 48 hours to submit the report.
+In regards to the exam, it allocats a 24-hour timeframe to operate within the exam lab environment, followed by an additional 48 hours to submit the exam report.
 
-In the exam, you will have to make use of the knowledge learnt in the course (nothing more!) and find the attack path to pwn the single AD domain with 5 machines (including the foothold machine). As long as you follow the content well, you should be able to crack the exam without much issue.
+During the exam, the focus lies on leveraging the knowledge acquired throughout the course, without the need for any additional resources. The objective entails identifying the attack path to compromise a single AD domain consisting of 5 machines, including the foothold machine. As long as the course material is thoroughly understood and followed, success in the exam should be achievable without significant obstacles.
 
 TIPS: Again - enumeration is always the main key to success. Make sure you understand how the vulnerabilities are found and what the tools outputs mean in the lab environment; or otherwise it would be easy to get lost!
 
