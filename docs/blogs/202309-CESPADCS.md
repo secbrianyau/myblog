@@ -19,9 +19,9 @@ tags:
 
 ## Course Overview
 
-With knowledge of the previous red team courses from [Nikhil Mittal](https://in.linkedin.com/in/mittalnikhil), also the author of the famous offensive powershell toll [Nishang](https://github.com/samratashok/nishang), it feels like it is much easier to understand how Active Directory really works and how it is commonly misconfigured to allow attackers to abuse and dorminate a forest.
+With knowledge of the previous red team courses from [Nikhil Mittal](https://in.linkedin.com/in/mittalnikhil), also the author of the famous offensive PowerShell tool [Nishang](https://github.com/samratashok/nishang), it feels much easier to understand how Active Directory really works and how it is commonly misconfigured, allowing attackers to abuse and dorminate a forest.
 
-[Active Directory Certificate Services (ADCS)](https://learn.microsoft.com/en-us/windows-server/identity/ad-cs/active-directory-certificate-services-overview) is Microsoft’s Public Key Infrastructure (PKI) for typical Windows environments. It would also be interesting in understanding more from the red team perspective to assist in the defensive measures like writing detection use cases and spotting misconfigurations. Seeing the new [ADCS course](https://www.alteredsecurity.com/adcs) coming out, I joined it as soon as it becomes available!
+[Active Directory Certificate Services (ADCS)](https://learn.microsoft.com/en-us/windows-server/identity/ad-cs/active-directory-certificate-services-overview) is Microsoft’s Public Key Infrastructure (PKI) for typical Windows environments. It would also be interesting to understand more from the red team perspective to assist in the defensive measures like writing detection use cases and spotting misconfigurations. Upon the release of the new [ADCS course](https://www.alteredsecurity.com/adcs), I joined it as soon as it became available!
 
 <br/>
 
@@ -29,9 +29,9 @@ With knowledge of the previous red team courses from [Nikhil Mittal](https://in.
 
 ## Course Review
 
-Like in the previous courses, you are given the VPN access / Web access to the lab environment, and also the course slides, videos etc.
+Like in the previous courses, you are given the VPN access and Web access to the lab environment, and also the course slides, videos etc.
 
-The course uses a step-by-step approach to walkthrough the concepts of some red teaming basics (e.g. AV Bypass, PowerShell Logging bypass, etc.), how AD CS works, different attack paths in AD CS environments, tools for AD CS attacks, etc. You may refer to the [Altered Security ADCS Course Page](https://www.alteredsecurity.com/adcs) to learn more about the course itself.
+The course uses a step-by-step approach to walk through concepts such as red teaming basics (e.g., AV Bypass, PowerShell Logging bypass, etc.), the workings of AD CS, different attack paths in AD CS environments, and tools for AD CS attacks, etc. You may refer to the [Altered Security ADCS Course Page](https://www.alteredsecurity.com/adcs) to learn more about the course itself.
 
 As a student who does not have much experience in configuring, defending and attacking ADCS, this course provides much knowledge on top of the basic AD attack surfaces learnt in the previous CRTP, CRTE and CRTM course. For someone who has 0 experience or knowledge in AD attacks, definitely check out the [CRTP course](https://www.alteredsecurity.com/adlab) to learn the fundamentals first.
 
