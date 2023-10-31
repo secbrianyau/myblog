@@ -1,7 +1,7 @@
 ---
 draft: false
 date: 2023-10-31
-readtime: 5
+readtime: 10
 categories:
   - Malware Analysis
 tags:
@@ -90,7 +90,7 @@ bus50.exe
 
 ---
 
-## 6ip4QK1.exe - Mystric Stealer C2 Component
+## 6ip4QK1.exe (Mystric Stealer C2 Component)
 
 [Any.run test](https://app.any.run/tasks/a24cd633-ec8b-4d6d-afea-f7d4448cc3fc)
 
@@ -105,7 +105,7 @@ References:
 
 ---
 
-## 5RI5Wx6.exe - Amadey Stealer
+## 5RI5Wx6.exe (Amadey Stealer)
 
 [Any.run test](https://app.any.run/tasks/f44f1636-3ccf-4e20-8495-f0c1a5d39490)
 
@@ -141,7 +141,7 @@ References:
 
 ---
 
-## 4Vb016Uy.exe - Redline Stealer Backdoor
+## 4Vb016Uy.exe (Redline Stealer Backdoor)
 
 [Any.run report](https://app.any.run/tasks/8c3b2ad8-9297-4104-9d03-4ca50ae3b720)
 
