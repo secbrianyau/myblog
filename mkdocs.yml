@@ -10,7 +10,7 @@ nav:
     - '202306 - AutoIt3 based USB Malware: The 0LIONW0 Worm (aka AutoIt.OTORUN.AC)': 'blogs/202306-USBMalware.md'
   - DFIR:
     - 'PowerShell':
-      - 'Powershell Obfuscation 1: Formatter': 'docs/dfir/ps-obfuscation-01.md'
+      - 'Powershell Obfuscation 1: Formatter': 'dfir/ps-obfuscation-01.md'
   - Links: links.md
   - Tags: tags.md
 # plugins:
