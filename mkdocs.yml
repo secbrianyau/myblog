@@ -8,6 +8,9 @@ nav:
     - '202310 - Extract & Extract & Extract': 'blogs/202310-Extract.md'
     - '202309 - Altered Security CESP-ADCS Review': 'blogs/202309-CESPADCS.md'
     - '202306 - AutoIt3 based USB Malware: The 0LIONW0 Worm (aka AutoIt.OTORUN.AC)': 'blogs/202306-USBMalware.md'
+  - DFIR:
+    - 'PowerShell':
+      - 'Powershell Obfuscation 1: Formatter': 'docs\dfir\ps-obfuscation-01.md'
   - Links: links.md
   - Tags: tags.md
 # plugins:

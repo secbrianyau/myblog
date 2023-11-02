@@ -14,7 +14,7 @@ tags:
 Sample: [MalwareBazaar 5d93a9281bf0948f49e9338435a1099ea347af058718bd1cc536da0491cb40d2](https://bazaar.abuse.ch/sample/5d93a9281bf0948f49e9338435a1099ea347af058718bd1cc536da0491cb40d2/#file_info)
 
 - Similar samples:
-  - [Hybrid Analysis: 6378cedadb8aac29185931b1f83dfeb023dc8f4d8ef7465f4bd8a75cd48fd275](https://hybrid-analysis.com/sample/6378cedadb8aac29185931b1f83dfeb023dc8f4d8ef7465f4bd8a75cd48fd275/65207092cc0f209ce1039b60)
+    - [Hybrid Analysis: 6378cedadb8aac29185931b1f83dfeb023dc8f4d8ef7465f4bd8a75cd48fd275](https://hybrid-analysis.com/sample/6378cedadb8aac29185931b1f83dfeb023dc8f4d8ef7465f4bd8a75cd48fd275/65207092cc0f209ce1039b60)
 
 - Original Sample: http://109[.]107.182.2/race/bus50.exe
 
@@ -22,7 +22,7 @@ General observations:
 
 - Stealers tends to be malware chained together for different purposes (e.g. Evasion -> Impair Defense -> SmokeLoader -> Redline -> Mystic)
 - Layers of backdoored WEXTRACT.EXE
-  - 7 components serving for different purposes
+    - 7 components serving for different purposes
 
 ![picture 0](markdown-images/17bdc90218a980ac2989a227b721659b206407efe72710ec62d22446c8304b86.png)  
 
@@ -76,13 +76,13 @@ bus50.exe
 
 - First create a `.bat` file in TEMP: `C:\Users\admin\AppData\Local\Temp\FB22.tmp\FB23.tmp\FB24.bat` with the argument C:\Users\admin\AppData\Local\Temp\7Lh9AM99.exe"
 - The `.bat` file will open the following URLs:
-  - https://accounts.google.com
-  - https://www.facebook.com/login
-  - https://store.steampowered.com/login/
-  - https://twitter.com/i/flow/login
-  - https://steamcommunity.com/openid/loginform/
-  - https://www.epicgames.com/id/login
-  - https://www.youtube.com/
+    - https://accounts.google.com
+    - https://www.facebook.com/login
+    - https://store.steampowered.com/login/
+    - https://twitter.com/i/flow/login
+    - https://steamcommunity.com/openid/loginform/
+    - https://www.epicgames.com/id/login
+    - https://www.youtube.com/
 
 (May need more time to find out the reason why - but apparently a way to detect if there is any saved session)
 
