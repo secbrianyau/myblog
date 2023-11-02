@@ -1,0 +1,1084 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://secbrianyau.github.io/myblog/blogs/202310-Extract/">
+      
+      
+        <link rel="prev" href="../../malwareanalysis/20231102-Deobfuscate-JavaScript/">
+      
+      
+        <link rel="next" href="../202309-CESPADCS/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+    
+    
+      
+        <title>202310 - Extract & Extract & Extract - Brain You the Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#202310-extract-extract-extract" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Brain You the Blog" class="md-header__button md-logo" aria-label="Brain You the Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Brain You the Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              202310 - Extract & Extract & Extract
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../malwareanalysis/20231102-Deobfuscate-JavaScript/" class="md-tabs__link">
+          
+  
+  Blogs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../dfir/ps-obfuscation-01/" class="md-tabs__link">
+          
+  
+  DFIR
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../links.md" class="md-tabs__link">
+        
+  
+    
+  
+  Links
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Brain You the Blog" class="md-nav__button md-logo" aria-label="Brain You the Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Brain You the Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Blogs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Blogs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../malwareanalysis/20231102-Deobfuscate-JavaScript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    202311 - JavaScript Deobfuscation & conhost.exe LOLBAS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    202310 - Extract & Extract & Extract
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    202310 - Extract & Extract & Extract
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#7lh9am99exe" class="md-nav__link">
+    7Lh9AM99.exe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6ip4qk1exe-mystric-stealer-c2-component" class="md-nav__link">
+    6ip4QK1.exe (Mystric Stealer C2 Component)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5ri5wx6exe-amadey-stealer" class="md-nav__link">
+    5RI5Wx6.exe (Amadey Stealer)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4vb016uyexe-redline-stealer-backdoor" class="md-nav__link">
+    4Vb016Uy.exe (Redline Stealer Backdoor)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3bt07qbexe-smokeloader" class="md-nav__link">
+    3bt07Qb.exe (SmokeLoader)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2hl5657exe-mystic-stealer-c2" class="md-nav__link">
+    2hl5657.exe (Mystic Stealer &amp; C2)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1ze54tl5exe" class="md-nav__link">
+    1ZE54Tl5.exe
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../202309-CESPADCS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    202309 - Altered Security CESP-ADCS Review
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../202306-USBMalware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    202306 - AutoIt3 based USB Malware: The 0LIONW0 Worm (aka AutoIt.OTORUN.AC)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    DFIR
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            DFIR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    PowerShell
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            PowerShell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfir/ps-obfuscation-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Powershell Obfuscation 1: Formatter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../links.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tags
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#7lh9am99exe" class="md-nav__link">
+    7Lh9AM99.exe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6ip4qk1exe-mystric-stealer-c2-component" class="md-nav__link">
+    6ip4QK1.exe (Mystric Stealer C2 Component)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5ri5wx6exe-amadey-stealer" class="md-nav__link">
+    5RI5Wx6.exe (Amadey Stealer)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4vb016uyexe-redline-stealer-backdoor" class="md-nav__link">
+    4Vb016Uy.exe (Redline Stealer Backdoor)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3bt07qbexe-smokeloader" class="md-nav__link">
+    3bt07Qb.exe (SmokeLoader)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2hl5657exe-mystic-stealer-c2" class="md-nav__link">
+    2hl5657.exe (Mystic Stealer &amp; C2)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1ze54tl5exe" class="md-nav__link">
+    1ZE54Tl5.exe
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#stealer" class="md-tag">Stealer</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#crypto-stealer" class="md-tag">Crypto Stealer</a>
+    
+  
+</nav>
+
+
+
+<h1 id="202310-extract-extract-extract">202310 - Extract &amp; Extract &amp; Extract</h1>
+<p>Sample: <a href="https://bazaar.abuse.ch/sample/5d93a9281bf0948f49e9338435a1099ea347af058718bd1cc536da0491cb40d2/#file_info">MalwareBazaar 5d93a9281bf0948f49e9338435a1099ea347af058718bd1cc536da0491cb40d2</a></p>
+<ul>
+<li>
+<p>Similar samples:</p>
+<ul>
+<li><a href="https://hybrid-analysis.com/sample/6378cedadb8aac29185931b1f83dfeb023dc8f4d8ef7465f4bd8a75cd48fd275/65207092cc0f209ce1039b60">Hybrid Analysis: 6378cedadb8aac29185931b1f83dfeb023dc8f4d8ef7465f4bd8a75cd48fd275</a></li>
+</ul>
+</li>
+<li>
+<p>Original Sample: http://109[.]107.182.2/race/bus50.exe</p>
+</li>
+</ul>
+<p>General observations:</p>
+<ul>
+<li>Stealers tends to be malware chained together for different purposes (e.g. Evasion -&gt; Impair Defense -&gt; SmokeLoader -&gt; Redline -&gt; Mystic)</li>
+<li>Layers of backdoored WEXTRACT.EXE<ul>
+<li>7 components serving for different purposes</li>
+</ul>
+</li>
+</ul>
+<p><img alt="picture 0" src="../markdown-images/17bdc90218a980ac2989a227b721659b206407efe72710ec62d22446c8304b86.png" />  </p>
+<ul>
+<li>The backdoored WEXTRACT can be viewed as a typical ZIP file where you may use tools like 7-Zip to extract</li>
+</ul>
+<p><img alt="picture 1" src="../markdown-images/c063e26cf50513636d7ed8a3ed995f9333058fe664c079c2323c24f278a09b15.png" />  </p>
+<ul>
+<li>After extracting, you will find yourself in an extract loop - the file <strong>RG2PO58.exe</strong> is yet another WEXTRACT compiled extractor</li>
+</ul>
+<p><img alt="picture 2" src="../markdown-images/cc72abb7850e7cc4b52c1c210dfff1e01badfe7a8362b34aad7fb6642852ba12.png" />  </p>
+<ul>
+<li>If you inspect the <strong>resources</strong> section, you will notice that there are instances of <strong>RUNPROGRAM</strong> and <strong>POSTRUNPROGRAM</strong></li>
+<li>In the resources section of the PE, you will find a CAB in the <strong>rcdata</strong></li>
+<li>You may use <strong>Resource Hacker</strong> to extract the relevant section from the backdoored WEXTRACT PE</li>
+<li><strong>bus50</strong> could be some sort of campaign identifier, which matches the original sample name in the distribution source (unconfirmed)</li>
+<li>Note that you will find <strong>wextract.exe</strong> in <strong>Windows\System32</strong>, which is a legit program for extracting CAB files</li>
+<li>This technique has been used for over 10 years for <strong>self-extraction</strong></li>
+<li>When running the sample, it will extract the EXE files in the <code>TEMP</code> and then execute them (likely the one in <strong>RUNPROGRAM</strong> and then <strong>POSTRUNPROGRAM</strong>)</li>
+</ul>
+<p>If you manually extract the files, you will see the following pattern:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bus50.exe
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    |__ 7Lh9AM99.exe                     (MD5: 19465EA8A948EACA48FB020A742D60EA)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    |__ RG2PO58.exe
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        |__ 6ip4QK1.exe                  (MD5: E4640A6D4E342A37E2DE8591AC76DC8F)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        |__ ks8GM27.exe
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            |__ 5RI5Wx6.exe              (MD5: C07F165F384ACCCABF2868AB3EFF6267)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            |__ jL7jG58.exe
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                |__ 4Vb016Uy.exe         (MD5: 7CCA36E70CF00E0C7971217151879922)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                |__ Gg2Te19.exe
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                    |__ 3bt07Qb.exe      (MD5: 1088CE08079743C4488D267289F9C110)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                    |__ Tk1Ov12.exe
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                        |__ 2Hl5657.exe  (MD5: FA2204DCE76A6C774C43B9343FBCC843)
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                        |__ 1ZE54Tl5.exe (MD5: 3293FD274A016127C9B27252FBE85DCD)
+</code></pre></div>
+<ul>
+<li>Effectively, the execution order should be: bus50.exe &gt; 7Lh9AM99.exe  &gt; 6ip4QK1.exe &gt; ... &gt; 1ZE54Tl5.exe</li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="7lh9am99exe">7Lh9AM99.exe</h2>
+<p><a href="https://app.any.run/tasks/a7c0eae4-8b7e-4351-b9a3-78d48bd5e861">Any.run test</a></p>
+<p><img alt="picture 3" src="../markdown-images/69c615e8977838ba0416122c62391289aed33e85b00014b4c9c71dc8ce8ae606.png" />  </p>
+<ul>
+<li>
+<p>Written in <strong>PureBasic</strong></p>
+</li>
+<li>
+<p>First create a <code>.bat</code> file in TEMP: <code>C:\Users\admin\AppData\Local\Temp\FB22.tmp\FB23.tmp\FB24.bat</code> with the argument C:\Users\admin\AppData\Local\Temp\7Lh9AM99.exe"</p>
+</li>
+<li>The <code>.bat</code> file will open the following URLs:<ul>
+<li>https://accounts.google.com</li>
+<li>https://www.facebook.com/login</li>
+<li>https://store.steampowered.com/login/</li>
+<li>https://twitter.com/i/flow/login</li>
+<li>https://steamcommunity.com/openid/loginform/</li>
+<li>https://www.epicgames.com/id/login</li>
+<li>https://www.youtube.com/</li>
+</ul>
+</li>
+</ul>
+<p>(May need more time to find out the reason why - but apparently a way to detect if there is any saved session)</p>
+<p><br/></p>
+<hr />
+<h2 id="6ip4qk1exe-mystric-stealer-c2-component">6ip4QK1.exe (Mystric Stealer C2 Component)</h2>
+<p><a href="https://app.any.run/tasks/a24cd633-ec8b-4d6d-afea-f7d4448cc3fc">Any.run test</a></p>
+<ul>
+<li>Call back to the C2 IP address: 193[.]233.255.7:80</li>
+</ul>
+<p>References:</p>
+<ul>
+<li>Cyfirma: <a href="https://www.cyfirma.com/outofband/mystic-stealer-evolving-stealth-malware/">https://www.cyfirma.com/outofband/mystic-stealer-evolving-stealth-malware/</a></li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="5ri5wx6exe-amadey-stealer">5RI5Wx6.exe (Amadey Stealer)</h2>
+<p><a href="https://app.any.run/tasks/f44f1636-3ccf-4e20-8495-f0c1a5d39490">Any.run test</a></p>
+<p><img alt="picture 4" src="../markdown-images/1179162fb73b6cbf91c30e6e48a187830a0e0452b0251ceae92d0a23f2bc454a.png" />  </p>
+<ol>
+<li>Drop an additional file called <code>explothe.exe</code> (MD5: c07f165f384acccabf2868ab3eff6267)</li>
+<li>Create Scheduled Task for retrieving <strong>Amadey</strong> components: <code>"C:\Windows\System32\schtasks.exe" /Create /SC MINUTE /MO 1 /TN explothe.exe /TR "C:\Users\admin\AppData\Local\Temp\fefffe8cea\explothe.exe" /F</code></li>
+<li>Evasion: <code>"C:\Windows\System32\cmd.exe" /k echo Y|CACLS "explothe.exe" /P "admin:N"&amp;&amp;CACLS "explothe.exe" /P "admin:R" /E&amp;&amp;echo Y|CACLS "..\fefffe8cea" /P "admin:N"&amp;&amp;CACLS "..\fefffe8cea" /P "admin:R" /E&amp;&amp;Exit</code> - Making <strong>explothe.exe</strong> and its current folder to be READ-ONLY to prevent deletion from the current user</li>
+<li>Retrieve additional components from <code>http://77[.]91.124.1/theme/</code> - <strong>cred.dll</strong> and <strong>clip.dll</strong>; with reference to <a href="https://www.splunk.com/en_us/blog/security/amadey-threat-analysis-and-detections.html">Splunk</a></li>
+<li>These dll will be invoked by <strong>rundll32.exe</strong> (<code>C:\Windows\System32\rundll32.exe" C:\Users\admin\AppData\Roaming\006700e5a2ab05\clip.dll, Main</code>) to harvest sensitive information from the victim machine, and then exfiltrate it to the designated C2</li>
+<li>An HTTP POST to the C2's <code>/theme/index.php</code> will contain the following structure: <code>id=302019708150&amp;vs=3.89&amp;sd=04d170&amp;os=9&amp;bi=0&amp;ar=0&amp;pc=USER-PC&amp;un=admin&amp;dm=&amp;av=0&amp;lv=0&amp;og=1</code> (This is the configuration of Any.run). This can be a network-based signature<ol>
+<li>id = Infected System ID</li>
+<li>vs = Amadey version (3.89 in this case)</li>
+<li>sd = Amadey ID (04d170 in this case)</li>
+<li>os = Windows version (9 in this case means Windows 7)</li>
+<li>bi = Architecture (0 means x86)</li>
+<li>ar = Admin privilege (0 means non-admin)</li>
+<li>pc = Hostname</li>
+<li>un = Username</li>
+<li>dm = Domain name</li>
+<li>av = List of installed malware</li>
+<li>lv = ?</li>
+<li>og = ?</li>
+</ol>
+</li>
+</ol>
+<p>References:</p>
+<ul>
+<li>Splunk: <a href="https://www.splunk.com/en_us/blog/security/amadey-threat-analysis-and-detections.html">https://www.splunk.com/en_us/blog/security/amadey-threat-analysis-and-detections.html</a></li>
+<li>Darktrace: <a href="https://darktrace.com/blog/amadey-info-stealer-exploiting-n-day-vulnerabilities">https://darktrace.com/blog/amadey-info-stealer-exploiting-n-day-vulnerabilities</a></li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="4vb016uyexe-redline-stealer-backdoor">4Vb016Uy.exe (Redline Stealer Backdoor)</h2>
+<p><a href="https://app.any.run/tasks/8c3b2ad8-9297-4104-9d03-4ca50ae3b720">Any.run report</a></p>
+<ol>
+<li>Data Exfiltration to 77[.]91.124.86:19084 with SOAP - for Command and Control + data exfiltration</li>
+</ol>
+<p>References:</p>
+<ol>
+<li>Malware.news: <a href="https://malware.news/t/dissecting-redline-infostealer-traffic-a-soapy-endeavour/56444">https://malware.news/t/dissecting-redline-infostealer-traffic-a-soapy-endeavour/56444</a></li>
+<li>https://www.cloudsek.com/blog/technical-analysis-of-the-redline-stealer</li>
+</ol>
+<p><br/></p>
+<hr />
+<h2 id="3bt07qbexe-smokeloader">3bt07Qb.exe (SmokeLoader)</h2>
+<p><a href="https://tria.ge/231031-m5x12she64">Triage result</a></p>
+<ul>
+<li>C2 at <code>http://77.91.68.29/fks/</code></li>
+</ul>
+<p>(To be analyzed further)</p>
+<p><br/></p>
+<hr />
+<h2 id="2hl5657exe-mystic-stealer-c2">2hl5657.exe (Mystic Stealer &amp; C2)</h2>
+<p>C2: <code>http://193.233.255.73/loghub/master</code></p>
+<ul>
+<li>Steal browser data</li>
+<li>Steal browser extension data</li>
+<li>Steal Cryptocurrency Wallet data</li>
+</ul>
+<p>Reference:</p>
+<ul>
+<li>Zscaler: <a href="https://www.zscaler.com/blogs/security-research/mystic-stealer-revisited">https://www.zscaler.com/blogs/security-research/mystic-stealer-revisited</a></li>
+</ul>
+<p><br/></p>
+<hr />
+<h2 id="1ze54tl5exe">1ZE54Tl5.exe</h2>
+<p><img alt="picture 5" src="../markdown-images/4c4545529cc6827d04a7b368367c09e93c6375ab5834ffa8b85660df37330855.png" />  </p>
+<ul>
+<li><code>Bus50</code> first and <code>Car1</code> at last?</li>
+</ul>
+<p>(To Be Analyzed)</p>
+<p>Reference:</p>
+<ul>
+<li>VMRay: <a href="https://www.vmray.com/analyses/_vt/f697004fb4b1/report/overview.html">https://www.vmray.com/analyses/_vt/f697004fb4b1/report/overview.html</a></li>
+</ul>
+<p><br/></p>
+<hr />
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
