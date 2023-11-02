@@ -5,6 +5,7 @@ nav:
   - Home: index.md
   - About: about.md
   - Blogs:
+    - '202311 - JavaScript Deobfuscation & conhost.exe LOLBAS': 'malwareanalysis/20231102-Deobfuscate-JavaScript.md'
     - '202310 - Extract & Extract & Extract': 'blogs/202310-Extract.md'
     - '202309 - Altered Security CESP-ADCS Review': 'blogs/202309-CESPADCS.md'
     - '202306 - AutoIt3 based USB Malware: The 0LIONW0 Worm (aka AutoIt.OTORUN.AC)': 'blogs/202306-USBMalware.md'
